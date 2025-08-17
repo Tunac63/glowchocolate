@@ -1,0 +1,49 @@
+.admin-wrap{
+	min-height:100vh;
+	background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+}
+.admin-header{
+	display:flex;align-items:center;justify-content:space-between;
+	padding:22px 28px;
+	background: rgba(255,255,255,0.96);
+	backdrop-filter: blur(20px) saturate(180%);
+	-webkit-backdrop-filter: blur(20px) saturate(180%);
+	border-bottom: 1px solid rgba(212,175,55,0.12);
+	box-shadow: 0 2px 8px rgba(0,0,0,0.03), 0 12px 40px rgba(212,175,55,0.06);
+}
+.back-btn{
+	background:#fff;
+	border:2px solid #d4af37;
+	color:#8b6914;
+	padding:10px 14px;
+	border-radius:12px;
+	cursor:pointer;
+	font-weight:700;
+	transition: all .25s ease;
+}
+.back-btn:hover{background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%); color:#fff; box-shadow:0 8px 24px rgba(212,175,55,.35)}
+.admin-main{padding:24px}
+.warn{margin:14px 0;padding:12px;border:1px solid rgba(212,175,55,0.25);background:rgba(212,175,55,0.06);color:#8b6914;border-radius:12px}
+.admin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.admin-card{
+	display:flex;align-items:center;gap:14px;
+	border:1px solid rgba(212,175,55,.12);
+	background: rgba(255,255,255,0.8);
+	backdrop-filter: blur(16px) saturate(170%);
+	-webkit-backdrop-filter: blur(16px) saturate(170%);
+	border-radius:18px;
+	padding:18px 20px;
+	text-align:left;cursor:pointer;
+	box-shadow: 0 8px 32px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+	transition: all .3s cubic-bezier(.4,0,.2,1);
+	position: relative; overflow: hidden;
+}
+.admin-card::before{content:'';position:absolute;left:0;top:0;width:4px;height:100%;background:linear-gradient(135deg,#d4af37,#b8860b);opacity:.5;transition:width .3s ease,opacity .3s ease}
+.admin-card:hover{transform:translateY(-6px) scale(1.01);border-color:rgba(212,175,55,0.2);box-shadow:0 24px 64px rgba(212,175,55,0.15),0 8px 32px rgba(0,0,0,0.08)}
+.admin-card:hover::before{width:8px;opacity:1}
+.icon{font-size:1.8rem;min-width:40px;text-align:center;filter:grayscale(.1) brightness(.95);transition:transform .3s ease}
+.admin-card:hover .icon{transform:scale(1.05) rotate(4deg)}
+.txt h3{margin:0 0 4px;color:#1e293b;font-weight:800;letter-spacing:-.01em}
+.txt p{margin:0;color:#64748b}
+.arrow{margin-left:auto;color:#d4af37;font-weight:800;opacity:.6;transition:transform .3s ease,opacity .3s ease}
+.admin-card:hover .arrow{opacity:1;transform:translateX(4px)}

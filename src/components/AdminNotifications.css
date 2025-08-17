@@ -1,0 +1,30 @@
+.admin-notif-wrap{min-height:100vh;background:linear-gradient(180deg,#faf7f0,#ffffff);color:#1a1a1a}
+.admin-notif-header{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:2}
+.admin-notif-header h1{flex:0 0 auto;margin:0;font-size:20px;letter-spacing:.4px}
+.admin-notif-header .spacer{flex:1}
+.back-btn{background:transparent;border:1px solid #d4af37;color:#b8860b;padding:8px 12px;border-radius:999px;cursor:pointer}
+.back-btn:hover{background:#fff8e1}
+.warn{margin:12px 20px;padding:10px 12px;border:1px dashed #b00020;background:#fff3f4;color:#b00020;border-radius:8px}
+.pane{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;padding:20px}
+@media(max-width:900px){.pane{grid-template-columns:1fr}}
+.form{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;box-shadow:0 6px 20px rgba(212,175,55,.08)}
+.group{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.group label{font-weight:600;color:#4b4b4b}
+.group input,.group textarea{border:1px solid #e7e1c2;border-radius:10px;padding:10px 12px;outline:none;background:#fffcf3}
+.group input:focus,.group textarea:focus{border-color:#d4af37;box-shadow:0 0 0 3px rgba(212,175,55,.15)}
+.actions{display:flex;justify-content:flex-end}
+.send{background:#d4af37;border:1px solid #b8860b;color:#1a1a1a;font-weight:600;padding:10px 18px;border-radius:999px;cursor:pointer}
+.send:disabled{opacity:.5;cursor:not-allowed}
+.send:hover:not(:disabled){filter:brightness(1.03)}
+.recent{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;box-shadow:0 6px 20px rgba(212,175,55,.08)}
+.recent h3{margin:0 0 10px 0}
+.list{display:flex;flex-direction:column;gap:8px}
+.row{display:grid;grid-template-columns:1fr 2fr auto;gap:12px;align-items:center;border:1px solid #f0e8c8;background:#fffcf3;border-radius:12px;padding:10px}
+.row .id{font-family:monospace;font-size:12px;color:#666}
+.row .msg{color:#2c2c2c}
+.row .status{font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid #e0d7b2}
+.row.pending .status{background:#fff7d6;color:#8a6d00;border-color:#f1d47a}
+.row.sent .status{background:#eaffea;color:#165b16;border-color:#b8e6b8}
+.row.failed .status{background:#ffe9e9;color:#8b0000;border-color:#ffc0c0}
+.empty{color:#888;border:1px dashed #e0d7b2;padding:20px;border-radius:10px;text-align:center}
+.hint{padding:10px 20px;color:#6b6b6b;font-size:12px}

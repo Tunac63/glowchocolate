@@ -1,0 +1,350 @@
+/* GunlukGorevlerModal.css */
+.gorevler-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.gorevler-modal {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(255, 255, 255, 0.9) 100%);
+  border: 3px solid #d4af37;
+  border-radius: 20px;
+  box-shadow: 
+    0 25px 50px rgba(212, 175, 55, 0.4),
+    0 10px 20px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  width: 800px;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+.gorevler-modal-header {
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: white;
+  padding: 25px 30px;
+  text-align: left;
+  position: relative;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.modal-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.gorevler-modal-header h2 {
+  margin: 0 0 5px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.gorevler-modal-header p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(-90deg);
+}
+
+.gorevler-modal-content {
+  padding: 25px 30px 30px;
+  max-height: calc(90vh - 140px);
+  overflow-y: auto;
+}
+
+.loading-message {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+.gorevler-listesi {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gorev-karti {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.9) 0%, 
+    rgba(248, 249, 250, 0.8) 100%);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.gorev-karti:hover {
+  border-color: #d4af37;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+}
+
+.gorev-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.gorev-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.onay-durumu {
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.gorev-aciklama {
+  margin: 0 0 20px 0;
+  color: #6c757d;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.alt-gorevler h4 {
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.alt-gorev-listesi {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.alt-gorev-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.alt-gorev-item:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: #d4af37;
+}
+
+.alt-gorev-item.tamamlandi {
+  background: rgba(40, 167, 69, 0.1);
+  border-color: #28a745;
+}
+
+.alt-gorev-item.tamamlandi .alt-gorev-baslik {
+  text-decoration: line-through;
+  color: #28a745;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  background: #d4af37;
+  color: white;
+  min-width: 20px;
+}
+
+.alt-gorev-item.tamamlandi .checkbox {
+  background: #28a745;
+}
+
+.alt-gorev-baslik {
+  flex: 1;
+  font-size: 0.95rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.gorev-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ilerleme-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ilerleme-text {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 600;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(212, 175, 55, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #d4af37 0%, #b8860b 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.gorev-tamamla-btn {
+  padding: 12px 20px;
+  border: 2px solid;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gorev-tamamla-btn.aktif {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border-color: #28a745;
+}
+
+.gorev-tamamla-btn.aktif:hover {
+  background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+}
+
+.gorev-tamamla-btn.pasif {
+  background: rgba(108, 117, 125, 0.1);
+  color: #6c757d;
+  border-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.gorev-tamamla-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gorevler-modal {
+    width: 95vw;
+    margin: 20px;
+  }
+  
+  .gorevler-modal-header {
+    padding: 20px 25px;
+  }
+  
+  .gorevler-modal-content {
+    padding: 20px 25px 25px;
+  }
+  
+  .gorev-karti {
+    padding: 20px;
+  }
+  
+  .gorev-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .gorev-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .alt-gorev-item {
+    padding: 8px 12px;
+  }
+  
+  .gorev-tamamla-btn {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gorevler-modal {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    margin: 0;
+  }
+  
+  .gorevler-modal-header {
+    padding: 25px 20px;
+  }
+  
+  .gorevler-modal-content {
+    padding: 20px;
+  }
+  
+  .gorev-karti {
+    padding: 15px;
+  }
+  
+  .gorevler-listesi {
+    gap: 15px;
+  }
+}
