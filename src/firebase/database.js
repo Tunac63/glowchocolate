@@ -150,9 +150,14 @@ export const enqueueNotification = async (docId, payload) => {
 }
 
 // Manuel toplu bildirim (benzersiz id)
-export const enqueueBroadcast = async (payload) => {
+export const enqueueBroadcast = async (payload, currentUser = null) => {
   const docId = `broadcast_${Date.now()}`
-  return enqueueNotification(docId, { audience: { type: 'all' }, ...payload })
+  return enqueueNotification(docId, {
+    audience: { type: 'all' },
+    createdByUid: currentUser?.uid || null,
+    createdByEmail: currentUser?.email || null,
+    ...payload
+  })
 }
 
 // Departman personellerini getir

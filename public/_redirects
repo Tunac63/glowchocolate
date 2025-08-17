@@ -1,3 +1,4 @@
 /assets/*    /assets/:splat    200
 /favicon.svg  /favicon.svg      200
+/firebase-messaging-sw.js  /firebase-messaging-sw.js  200
 /*           /index.html        200

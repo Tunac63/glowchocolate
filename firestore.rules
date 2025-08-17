@@ -27,6 +27,14 @@ service cloud.firestore {
          resource.data.uid == request.auth.uid);
     }
 
+    // Bildirim kuyruğu: okumayı sadece adminlere aç, yazmayı admin/Functions'a
+    match /notification_queue/{docId} {
+      allow read: if request.auth != null && request.auth.token.admin == true;
+      allow create: if request.auth != null && request.auth.token.admin == true;
+      // Cloud Functions sunucudan update eder (service account bypass)
+      allow update, delete: if false;
+    }
+
     match /{document=**} {
       allow read: if request.auth != null;
     }
