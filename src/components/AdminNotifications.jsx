@@ -12,6 +12,7 @@ export default function AdminNotifications({ userProfile, onBack }) {
   const [body, setBody] = useState('')
   const [sending, setSending] = useState(false)
   const [rows, setRows] = useState([])
+  const FUNCTIONS_REGION = import.meta.env.VITE_FUNCTIONS_REGION || 'us-central1'
 
   const load = async () => {
     try {
@@ -31,8 +32,9 @@ export default function AdminNotifications({ userProfile, onBack }) {
     try {
       // Önce HTTPS callable deneyelim (Functions)
   // Bölgeyi açıkça belirt (Functions varsayılan: us-central1)
-  const fns = getFunctions(app, 'us-central1')
-  if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+  const fns = getFunctions(app, FUNCTIONS_REGION)
+  const useEmu = import.meta.env.VITE_USE_FUNCTIONS_EMULATOR === '1'
+  if (useEmu) {
     try { connectFunctionsEmulator(fns, 'localhost', 5001) } catch {}
   }
   const fn = httpsCallable(fns, 'enqueueBroadcast')
@@ -81,8 +83,9 @@ export default function AdminNotifications({ userProfile, onBack }) {
     if (!isAdmin) return
     setSending(true)
     try {
-      const fns = getFunctions(app, 'us-central1')
-      if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+  const fns = getFunctions(app, FUNCTIONS_REGION)
+      const useEmu = import.meta.env.VITE_USE_FUNCTIONS_EMULATOR === '1'
+      if (useEmu) {
         try { connectFunctionsEmulator(fns, 'localhost', 5001) } catch {}
       }
       const fn = httpsCallable(fns, 'processPending')

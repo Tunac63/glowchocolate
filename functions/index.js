@@ -3,6 +3,7 @@ const admin = require('firebase-admin')
 
 admin.initializeApp()
 const db = admin.firestore()
+const region = process.env.FUNCTIONS_REGION || 'us-central1'
 
 // Ortak: Tek bir notification_queue dokümanını işleyip durumunu günceller
 async function processQueueDoc(snap) {
@@ -39,7 +40,7 @@ async function processQueueDoc(snap) {
 }
 
 // notification_queue'daki yeni kayıtları FCM'e gönder
-exports.processNotificationQueue = functions.firestore
+exports.processNotificationQueue = functions.region(region).firestore
   .document('notification_queue/{id}')
   .onCreate(async (snap, context) => {
     try {
@@ -51,7 +52,7 @@ exports.processNotificationQueue = functions.firestore
   })
 
 // HTTPS callable: admin kullanıcıdan kuyruga kayıt at
-exports.enqueueBroadcast = functions.https.onCall(async (data, context) => {
+exports.enqueueBroadcast = functions.region(region).https.onCall(async (data, context) => {
   if (!context.auth) {
     throw new functions.https.HttpsError('unauthenticated', 'Auth gerekli')
   }
@@ -76,7 +77,7 @@ exports.enqueueBroadcast = functions.https.onCall(async (data, context) => {
 })
 
 // users rolü admin'e dönerse custom claims ile eşitle
-exports.syncUserClaims = functions.firestore
+exports.syncUserClaims = functions.region(region).firestore
   .document('users/{docId}')
   .onWrite(async (change, context) => {
     const after = change.after.exists ? change.after.data() : null
@@ -90,7 +91,7 @@ exports.syncUserClaims = functions.firestore
   })
 
 // HTTPS callable: Admin için mevcut "pending" kayıtları elle işle (backfill)
-exports.processPending = functions.https.onCall(async (data, context) => {
+exports.processPending = functions.region(region).https.onCall(async (data, context) => {
   if (!context.auth) {
     throw new functions.https.HttpsError('unauthenticated', 'Auth gerekli')
   }
